@@ -1,4 +1,4 @@
-const getRandomPositiveInt = (a, b = 1) => {
+const getRandomPositiveInt = (a, b = 0) => {
 
   if (a === undefined) {
     throw new Error('Некорректный диапазон');
