@@ -1,7 +1,7 @@
 const getRandomPositiveInt = (a, b = 1) => {
 
   if (a === undefined) {
-    throw new Error('Первый параметр должен быть число');
+    throw new Error('Некорректный диапазон');
   }
 
   const min = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
