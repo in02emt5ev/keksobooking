@@ -10,4 +10,19 @@ const getRandomPositiveInt = (a, b = 1) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-console.log(getRandomPositiveInt(0, 10));
+const getRandomPositiveFloat = (a, b = 0, decim = 0) => {
+
+  if (a === undefined) {
+    throw new Error("Некорректный диапазон")
+  }
+
+  const min = Math.min(Math.abs(a), Math.abs(b));
+  const max = Math.max(Math.abs(a), Math.abs(b));
+
+  const result = (Math.random() * (max - min)) + min;
+
+  return Number(result.toFixed(decim));
+}
+
+getRandomPositiveInt(0, 1);
+getRandomPositiveFloat(0.78, 1.33, 3)
