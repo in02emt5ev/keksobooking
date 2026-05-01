@@ -1,7 +1,7 @@
 const getRandomPositiveInt = (a, b = 1) => {
 
   if (a === undefined) {
-    throw new Error("Первый параметр должен быть число")
+    throw new Error('Первый параметр должен быть число');
   }
 
   const min = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
@@ -13,7 +13,7 @@ const getRandomPositiveInt = (a, b = 1) => {
 const getRandomPositiveFloat = (a, b = 0, decim = 0) => {
 
   if (a === undefined) {
-    throw new Error("Некорректный диапазон")
+    throw new Error('Некорректный диапазон');
   }
 
   const min = Math.min(Math.abs(a), Math.abs(b));
@@ -22,7 +22,7 @@ const getRandomPositiveFloat = (a, b = 0, decim = 0) => {
   const result = (Math.random() * (max - min)) + min;
 
   return Number(result.toFixed(decim));
-}
+};
 
 getRandomPositiveInt(0, 1);
-getRandomPositiveFloat(0.78, 1.33, 3)
+getRandomPositiveFloat(0.78, 1.33, 3);
