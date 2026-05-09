@@ -80,13 +80,43 @@ const TITLES = [
 ];
 const DESCRIPTIONS = [
   'Уютная студия в центре города с новым ремонтом, мебелью и техникой',
-  'Просторная 2‑комнатная квартира рядом с парком, есть балкон',
   'Светлая квартира с видом на парк, полностью меблирована, интернет включён',
   'Современный лофт у набережной: высокие потолки, панорамные окна, открытая планировка',
   'Дом у моря, 3 спальни, терраса, кондиционер, до пляжа 5 минут пешком',
-  'Комфортабельный офис в БЦ в деловом районе: охрана, парковка, Wi‑Fi',
   'Однокомнатная квартира рядом с метро, развитая инфраструктура, тихие соседи',
   'Коттедж за городом, участок 10 соток, баня, мангальная зона, рядом лес',
   'Апартаменты с бассейном и террасой, вид на город, консьерж, охрана 24/7',
-  'Мини‑студия для студента: компактная, светлая, всё необходимое в шаговой доступности'
 ];
+
+const createMockRentAd = (index) => {
+  const author = {
+    avatar: (index < 10) ? 'img/avatars/user0' + index + '.png' : 'img/avatars/user' + index + '.png'
+  };
+
+  const location = {
+    lat: getRandomPositiveFloat(35.65, 35.7, 5),
+    lng: getRandomPositiveFloat(139.7, 139.8, 5)
+  };
+
+  const offer = {
+    title: TITLES[getRandomPositiveInt(TITLES.length - 1)],
+    address: location.lat + ', ' + location.lng,
+    price: getRandomPositiveInt(1000),
+    type: TYPES[getRandomPositiveInt(TYPES.length - 1)],
+    rooms: getRandomPositiveInt(100),
+    guests: getRandomPositiveInt(1000),
+    checkin: CHECKINS[getRandomPositiveInt(CHECKINS.length - 1)],
+    checkout: CHECKOUTS[getRandomPositiveInt(CHECKOUTS.length - 1)],
+    features: shuffleArray(FEATURES).slice(getRandomPositiveInt(FEATURES.length)),
+    description: DESCRIPTIONS[getRandomPositiveInt(DESCRIPTIONS.length - 1)],
+    photos: shuffleArray(PHOTOS).slice(getRandomPositiveInt(PHOTOS.length))
+  };
+
+  const mockRentAd = {
+    author,
+    location,
+    offer
+  };
+
+  return mockRentAd;
+};
