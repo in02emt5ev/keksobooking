@@ -1,3 +1,5 @@
+// Утилитарные функции
+
 const getRandomPositiveInt = (a, b = 0) => {
 
   if (a === undefined) {
@@ -38,27 +40,7 @@ const shuffleArray = (arr) => {
 
 const getRandomArrayElement = (arr) => arr[getRandomPositiveInt(arr.length - 1)];
 
-getRandomPositiveInt(0, 1);
-getRandomPositiveFloat(0.78, 1.33, 3);
-
-// Создание временных данных для объявлений
-
-// Структура объекта
-
-// const mockRentAd = {
-//   author: {
-//     avatar
-//   },
-
-//   offer: {
-//     title, address, price, type, rooms, guests, checkin, checkout, features, description, photos
-//   },
-
-//   location: {
-//     lat, lng
-//   }
-// };
-
+// Временные данные для объявлений
 
 const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const CHECKINS = ['12:00', '13:00', '14:00'];
