@@ -36,6 +36,8 @@ const shuffleArray = (arr) => {
   return shuffledArray;
 };
 
+const getRandomArrayElement = (arr) => arr[getRandomPositiveInt(arr.length - 1)];
+
 getRandomPositiveInt(0, 1);
 getRandomPositiveFloat(0.78, 1.33, 3);
 
@@ -99,16 +101,16 @@ const createMockRentAd = (index) => {
   };
 
   const offer = {
-    title: TITLES[getRandomPositiveInt(TITLES.length - 1)],
+    title: getRandomArrayElement(TITLES),
     address: location.lat + ', ' + location.lng,
     price: getRandomPositiveInt(1000),
-    type: TYPES[getRandomPositiveInt(TYPES.length - 1)],
+    type: getRandomArrayElement(TYPES),
     rooms: getRandomPositiveInt(100),
     guests: getRandomPositiveInt(1000),
-    checkin: CHECKINS[getRandomPositiveInt(CHECKINS.length - 1)],
-    checkout: CHECKOUTS[getRandomPositiveInt(CHECKOUTS.length - 1)],
+    checkin: getRandomArrayElement(CHECKINS),
+    checkout: getRandomArrayElement(CHECKOUTS),
     features: shuffleArray(FEATURES).slice(getRandomPositiveInt(FEATURES.length)),
-    description: DESCRIPTIONS[getRandomPositiveInt(DESCRIPTIONS.length - 1)],
+    description: getRandomArrayElement(DESCRIPTIONS),
     photos: shuffleArray(PHOTOS).slice(getRandomPositiveInt(PHOTOS.length))
   };
 
