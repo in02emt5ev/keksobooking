@@ -24,5 +24,17 @@ const getRandomPositiveFloat = (a, b = 0, decim = 0) => {
   return Number(result.toFixed(decim));
 };
 
+const shuffleArray = (arr) => {
+  const shuffledArray = arr.slice();
+
+  for (let i = 0; i < shuffledArray.length; i++) {
+    let randomIndex = getRandomPositiveInt(0, shuffleArray.length - 1);
+
+    [ shuffleArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
+  };
+
+  return shuffledArray;
+};
+
 getRandomPositiveInt(0, 1);
 getRandomPositiveFloat(0.78, 1.33, 3);
