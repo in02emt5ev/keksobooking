@@ -30,10 +30,10 @@ const shuffleArray = (arr) => {
   const shuffledArray = arr.slice();
 
   for (let i = 0; i < shuffledArray.length; i++) {
-    let randomIndex = getRandomPositiveInt(0, shuffleArray.length - 1);
+    const randomIndex = getRandomPositiveInt(0, shuffleArray.length - 1);
 
     [ shuffleArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
-  };
+  }
 
   return shuffledArray;
 };
@@ -74,7 +74,7 @@ const DESCRIPTIONS = [
 
 const createMockRentAd = (index) => {
   const author = {
-    avatar: (index < 10) ? 'img/avatars/user0' + index + '.png' : 'img/avatars/user' + index + '.png'
+    avatar: (index < 10) ? `img/avatars/user0${index}.png` : `img/avatars/user${index}.png`
   };
 
   const location = {
@@ -84,7 +84,7 @@ const createMockRentAd = (index) => {
 
   const offer = {
     title: getRandomArrayElement(TITLES),
-    address: location.lat + ', ' + location.lng,
+    address: `${location.lat}, ${location.lng}`,
     price: getRandomPositiveInt(1000),
     type: getRandomArrayElement(TYPES),
     rooms: getRandomPositiveInt(100),
