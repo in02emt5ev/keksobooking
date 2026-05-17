@@ -61,6 +61,6 @@ const createMockRentAd = (index) => {
   return mockRentAd;
 };
 
-const getMockRentAds = () => Array.from({length: 10}, (_, index) => createMockRentAd(index));
+const getMockRentAds = () => Array.from({length: 10}, (_, index) => createMockRentAd(index + 1));
 
 getMockRentAds();

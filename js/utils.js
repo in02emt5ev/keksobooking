@@ -28,7 +28,7 @@ const shuffleArray = (arr) => {
   const shuffledArray = arr.slice();
 
   for (let i = 0; i < shuffledArray.length; i++) {
-    const randomIndex = getRandomPositiveInt(0, shuffleArray.length - 1);
+    const randomIndex = getRandomPositiveInt(0, shuffledArray.length - 1);
 
     [ shuffleArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
   }
@@ -36,4 +36,10 @@ const shuffleArray = (arr) => {
   return shuffledArray;
 };
 
-const getRandomArrayElement = (arr) => arr[getRandomPositiveInt(arr.length - 1)];
+const getRandomArrayElement = (arr) => {
+  if (!Array.isArray(arr) || !arr.length) {
+    return undefined;
+  }
+
+  return arr[getRandomPositiveInt(arr.length - 1)];
+};
