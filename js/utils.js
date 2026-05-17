@@ -43,3 +43,5 @@ const getRandomArrayElement = (arr) => {
 
   return arr[getRandomPositiveInt(arr.length - 1)];
 };
+
+export {getRandomArrayElement, getRandomPositiveInt, getRandomPositiveFloat, shuffleArray};

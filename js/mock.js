@@ -1,3 +1,5 @@
+import {getRandomArrayElement, getRandomPositiveInt, getRandomPositiveFloat, shuffleArray} from './utils.js';
+
 const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const CHECKINS = ['12:00', '13:00', '14:00'];
 const CHECKOUTS = ['12:00', '13:00', '14:00'];
@@ -63,4 +65,4 @@ const createMockRentAd = (index) => {
 
 const getMockRentAds = () => Array.from({length: 10}, (_, index) => createMockRentAd(index + 1));
 
-getMockRentAds();
+export {getMockRentAds};
