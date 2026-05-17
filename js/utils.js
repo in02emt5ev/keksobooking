@@ -30,7 +30,7 @@ const shuffleArray = (arr) => {
   for (let i = 0; i < shuffledArray.length; i++) {
     const randomIndex = getRandomPositiveInt(0, shuffledArray.length - 1);
 
-    [ shuffleArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
+    [ shuffledArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
   }
 
   return shuffledArray;
