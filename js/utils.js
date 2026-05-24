@@ -1,0 +1,47 @@
+const getRandomPositiveInt = (a, b = 0) => {
+
+  if (a === undefined) {
+    throw new Error('Некорректный диапазон');
+  }
+
+  const min = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const max = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const getRandomPositiveFloat = (a, b = 0, decim = 0) => {
+
+  if (a === undefined) {
+    throw new Error('Некорректный диапазон');
+  }
+
+  const min = Math.min(Math.abs(a), Math.abs(b));
+  const max = Math.max(Math.abs(a), Math.abs(b));
+
+  const result = (Math.random() * (max - min)) + min;
+
+  return Number(result.toFixed(decim));
+};
+
+const shuffleArray = (arr) => {
+  const shuffledArray = arr.slice();
+
+  for (let i = 0; i < shuffledArray.length; i++) {
+    const randomIndex = getRandomPositiveInt(0, shuffledArray.length - 1);
+
+    [ shuffledArray[i], shuffledArray[randomIndex] ] = [ shuffledArray[randomIndex], shuffledArray[i] ];
+  }
+
+  return shuffledArray;
+};
+
+const getRandomArrayElement = (arr) => {
+  if (!Array.isArray(arr) || !arr.length) {
+    return undefined;
+  }
+
+  return arr[getRandomPositiveInt(arr.length - 1)];
+};
+
+export {getRandomArrayElement, getRandomPositiveInt, getRandomPositiveFloat, shuffleArray};
