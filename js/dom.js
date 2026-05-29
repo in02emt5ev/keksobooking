@@ -29,7 +29,7 @@ const createAdCard = (cardData) => {
   }
 
   if (cardData.offer.price) {
-    card.querySelector('.popup__text--price').textContent = cardData.offer.price + ' ₽/ночь';
+    card.querySelector('.popup__text--price').textContent = `${cardData.offer.price} ₽/ночь`;
   } else {
     card.querySelector('.popup__text--price').remove();
   }
@@ -57,7 +57,7 @@ const createAdCard = (cardData) => {
   card.querySelector('.popup__avatar').src = cardData.author.avatar;
 
   const photosCardsContainer = card.querySelector('.popup__photos');
-  const photoCardTemplate = card.querySelector('.popup__photo')
+  const photoCardTemplate = card.querySelector('.popup__photo');
 
   photosCardsContainer.innerHTML = '';
 
