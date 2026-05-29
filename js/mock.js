@@ -43,10 +43,10 @@ const createMockRentAd = (index) => {
   const offer = {
     title: getRandomArrayElement(TITLES),
     address: `${location.lat}, ${location.lng}`,
-    price: getRandomPositiveInt(1000),
+    price: getRandomPositiveInt(1000, 100000),
     type: getRandomArrayElement(TYPES),
-    rooms: getRandomPositiveInt(100),
-    guests: getRandomPositiveInt(1000),
+    rooms: getRandomPositiveInt(1, 5),
+    guests: getRandomPositiveInt(1, 5),
     checkin: getRandomArrayElement(CHECKINS),
     checkout: getRandomArrayElement(CHECKOUTS),
     features: shuffleArray(FEATURES).slice(getRandomPositiveInt(FEATURES.length)),
