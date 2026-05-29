@@ -31,6 +31,16 @@ const createAdCard = (cardData) => {
 
   cardFeatures.append(...featuresNodeList);
 
+  const cardPhotos = card.querySelector('.popup__photos');
+
+  cardPhotos.innerHTML = '';
+
+  const photosNodeList = cardData.offer.photos.map( (photo) => {
+    return `<img src="${photo}" class="popup__photo" width="45" height="40" alt="Фотография жилья">`;
+  } );
+
+  cardPhotos.append(...photosNodeList);
+
   return card;
 };
 
