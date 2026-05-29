@@ -1,9 +1,28 @@
 const adCardTemplate = document.querySelector('#card').content.querySelector('.popup');
 
+const adTypeMap = {
+  'flat': 'Квартира',
+  'bungalow': 'Бунгало',
+  'house': 'Дом',
+  'palace': 'Дворец',
+  'hotel': 'Отель'
+};
+
 const createAdCard = (cardData) => {
   const card = adCardTemplate.cloneNode(true);
 
-  console.log(card);
+  card.querySelector('.popup__title').textContent = cardData.offer.title;
+  card.querySelector('.popup__text--address').textContent = cardData.offer.address;
+  card.querySelector('.popup__text--price').textContent = cardData.offer.price + ' ₽/ночь';
+  card.querySelector('.popup__text--capacity').textContent = `${cardData.offer.rooms} комнаты для ${cardData.offer.guests} гостей`;
+  card.querySelector('.popup__text--time').textContent = `Заезд после ${cardData.offer.checkin}, выезд до ${cardData.offer.checkout}`;
+  card.querySelector('.popup__description').textContent = cardData.offer.description;
+  card.querySelector('.popup__type').textContent = adTypeMap[cardData.offer.type];
+
+
+  card.querySelector('.popup__avatar').src = cardData.author.avatar;
+
+  return card;
 };
 
-createAdCard();
+console.log(createAdCard());
