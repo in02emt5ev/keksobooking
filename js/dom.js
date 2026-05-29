@@ -19,8 +19,17 @@ const createAdCard = (cardData) => {
   card.querySelector('.popup__description').textContent = cardData.offer.description;
   card.querySelector('.popup__type').textContent = adTypeMap[cardData.offer.type];
 
-
   card.querySelector('.popup__avatar').src = cardData.author.avatar;
+
+  const cardFeatures = card.querySelector('.popup__features');
+
+  cardFeatures.innerHTML = '';
+
+  const featuresNodeList = cardData.offer.features.map( (feature) => {
+    return `<li class="popup__feature popup__feature--${feature}"></li>`;
+  } );
+
+  cardFeatures.append(...featuresNodeList);
 
   return card;
 };
