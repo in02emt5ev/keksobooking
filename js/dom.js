@@ -44,4 +44,4 @@ const createAdCard = (cardData) => {
   return card;
 };
 
-console.log(createAdCard());
+export {createAdCard};
