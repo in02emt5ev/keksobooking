@@ -1,4 +1,5 @@
 const adCardTemplate = document.querySelector('#card').content.querySelector('.popup');
+const mapCanvas = document.querySelector('#map-canvas');
 
 const adTypeMap = {
   'flat': 'Квартира',
@@ -21,27 +22,36 @@ const createAdCard = (cardData) => {
 
   card.querySelector('.popup__avatar').src = cardData.author.avatar;
 
-  const cardFeatures = card.querySelector('.popup__features');
+  const photosCardsContainer = card.querySelector('.popup__photos');
+  const photoCardTemplate = card.querySelector('.popup__photo')
 
-  cardFeatures.innerHTML = '';
+  photosCardsContainer.innerHTML = '';
 
-  const featuresNodeList = cardData.offer.features.map( (feature) => {
-    return `<li class="popup__feature popup__feature--${feature}"></li>`;
-  } );
+  cardData.offer.photos.forEach( (photoSrc) => {
+    const photoCard = photoCardTemplate.cloneNode(true);
 
-  cardFeatures.append(...featuresNodeList);
+    photoCard.src = photoSrc;
 
-  const cardPhotos = card.querySelector('.popup__photos');
+    photosCardsContainer.append(photoCard);
+  });
 
-  cardPhotos.innerHTML = '';
+  const featureCardsList = card.querySelectorAll('.popup__feature');
 
-  const photosNodeList = cardData.offer.photos.map( (photo) => {
-    return `<img src="${photo}" class="popup__photo" width="45" height="40" alt="Фотография жилья">`;
-  } );
+  featureCardsList.forEach( (featureCard) => {
+    const isExist = cardData.offer.features.some(
+      (feature) => featureCard.classList.contains(`popup__feature--${feature}`)
+    );
 
-  cardPhotos.append(...photosNodeList);
+    if (!isExist) {
+      featureCard.remove();
+    }
+  });
 
   return card;
 };
 
-export {createAdCard};
+const renderAdCard = (card) => {
+  mapCanvas.append(card);
+};
+
+export {createAdCard, renderAdCard};
