@@ -63,6 +63,7 @@ const createAdCard = (cardData) => {
   const photosCardsContainer = card.querySelector('.popup__photos');
 
   if (cardData.offer.photos && cardData.offer.photos.length > 0) {
+    const photosFragment = document.createDocumentFragment();
     photosCardsContainer.innerHTML = '';
 
     cardData.offer.photos.forEach((photoSrc) => {
@@ -74,8 +75,10 @@ const createAdCard = (cardData) => {
       photoCard.height = 40;
       photoCard.alt = 'Фотография жилья';
 
-      photosCardsContainer.append(photoCard);
+      photosFragment.append(photoCard);
     });
+
+    photosCardsContainer.append(photosFragment);
   } else {
     photosCardsContainer.remove();
   }
