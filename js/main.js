@@ -3,6 +3,4 @@ import { createAdCard, renderAdCard } from './card.js';
 
 const mockData = getMockRentAds();
 
-const adCard = createAdCard(mockData[0]);
-
-renderAdCard(adCard);
+renderAdCard(createAdCard(mockData[0]));
