@@ -17,6 +17,18 @@ const disablePage = () => {
   }
 };
 
-export { disablePage };
+const enablePage = () => {
+  adForm.classList.remove('ad-form--disabled');
 
-// Напишите функцию, которая будет переводить страницу в активное состояние.
+  for (let field of adFormFields) {
+    field.disabled = false;
+  }
+
+  mapFiltersForm.classList.remove('map__filters--disabled');
+
+  for (let filter of mapFilters) {
+    filter.disabled = false;
+  }
+};
+
+export { disablePage, enablePage };
